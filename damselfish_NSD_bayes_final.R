@@ -45,7 +45,7 @@ bayes_R2(aggression_mod)
 
 # hypothesis testing 
 aggression_mod.hyp <-
-  hypothesis(aggression_mod, c("typeneighbour > typestranger"))
+  hypothesis(aggression_mod, c("typeneighbour = typestranger"))
 print(aggression_mod.hyp)
 
 aggression_mod.hyp_draws<-(aggression_mod.hyp[["samples"]])
@@ -73,10 +73,10 @@ aggression_mod.hyp_plot <-
   scale_x_continuous(name = NULL, lim = c(-1.2, 1.4)) +
   stat_slab(alpha=0.6) +
   geom_vline(xintercept = 0, linetype = "dashed") +
-  ggtitle("Hypothesis: Territory holders are more aggressive
-          towards neighbours than strangers") +
+  ggtitle("Hypothesis: Territory holders are equally aggressive
+          towards neighbours and non-neighbours") +
   scale_fill_manual(values=c("grey","#F99379")) +
-  annotate("text", x = -1.2, y = 0.99, label = "PP = 1.00\nER = 431.43", hjust = 0, vjust = 1) +
+  annotate("text", x = -1.2, y = 0.99, label = "PP = 0.74\nER = 2.8", hjust = 0, vjust = 1) +
   plot_theme
 aggression_mod.hyp_plot
 
@@ -102,7 +102,7 @@ bayes_R2(aggression_mod_large)
 
 # hypothesis testing 
 aggression_mod_large.hyp<-
-  hypothesis(aggression_mod_large, c("typeneighbour > typestranger"))
+  hypothesis(aggression_mod_large, c("typeneighbour = typestranger"))
 print(aggression_mod_large.hyp)
 
 aggression_mod_large.hyp_draws<-(aggression_mod_large.hyp[["samples"]])
@@ -116,10 +116,10 @@ aggression_mod_large.hyp_plot <-
   scale_x_continuous(name = NULL, lim = c(-1.2, 1.4)) +
   stat_slab(alpha=0.6) +
   geom_vline(xintercept = 0, linetype = "dashed") +
-  ggtitle("Hypothesis: Territory holders are more aggressive towards
-          larger neighbours than larger strangers")+
+  ggtitle("Hypothesis: Territory holders are equally aggressive towards
+          larger neighbours and larger non-neighbours")+
   scale_fill_manual(values=c("grey","#F99379")) +
-  annotate("text", x = -1.2, y = 0.99, label = "PP = 0.66\nER = 1.91", hjust = 0, vjust = 1) +
+  annotate("text", x = -1.2, y = 0.99, label = "PP = 0.98\nER = 40.25", hjust = 0, vjust = 1) +
   plot_theme
 aggression_mod_large.hyp_plot
 
@@ -145,7 +145,7 @@ bayes_R2(aggression_mod_small)
 
 #Hypothesis testing 
 aggression_mod_small.hyp <-
-  hypothesis(aggression_mod_small, c("typeneighbour > typestranger"))
+  hypothesis(aggression_mod_small, c("typeneighbour = typestranger"))
 print(aggression_mod_small.hyp)
 
 aggression_mod_small.hyp_draws<-(aggression_mod_small.hyp[["samples"]])
@@ -159,10 +159,10 @@ aggression_mod_small.hyp_plot <-
   scale_x_continuous(name = "Estimated difference in aggression", lim = c(-1.2, 1.4)) +
   stat_slab(alpha=0.6) +
   geom_vline(xintercept = 0, linetype = "dashed") +
-  ggtitle("Hypothesis: Territory holders are more aggressive towards
-          smaller neighbours than smaller strangers")+
+  ggtitle("Hypothesis: Territory holders are equally aggressive towards
+          smaller neighbours and smaller non-neighbours")+
   scale_fill_manual(values=c("grey","#F99379")) +
-  annotate("text", x = -1.2, y = 0.99, label = "PP = 1.00\nER = 1332.33", hjust = 0, vjust = 1) +
+  annotate("text", x = -1.2, y = 0.99, label = "PP = 0.58\nER = 1.37", hjust = 0, vjust = 1) +
   plot_theme
 aggression_mod_small.hyp_plot
 
